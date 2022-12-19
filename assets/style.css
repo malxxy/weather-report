@@ -10,3 +10,8 @@ main {
     margin: 2px;
     display: flex;
 }
+
+header {
+    display: block;
+    width: 100%;
+}
