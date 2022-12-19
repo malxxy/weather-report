@@ -6,12 +6,33 @@
 
 /* Universal Elements */
 main {
-    padding: 2px;
-    margin: 2px;
     display: flex;
 }
 
 header {
     display: block;
     width: 100%;
+}
+
+.header-content {
+    color: white;
+    background: rgb(10,10,10);
+    background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(0,31,210,0.8926164215686274) 0%, rgba(220,0,228,1) 100%);  
+    text-align: center;
+    padding: 20px 10px 15px 10px;
+}
+
+.search-section {
+    color:white;
+    background: grey;
+    -webkit-box-shadow:0px 0px 51px 21px rgba(26,12,227,0.93);
+    -moz-box-shadow: 0px 0px 51px 21px rgba(26,12,227,0.93);
+    box-shadow: 0px 0px 51px 21px rgba(26,12,227,0.93);
+}
+
+footer {
+    color: white;
+    text-align: center;
+    background: rgb(10,10,10);
+    background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(0,31,210,0.8926164215686274) 0%, rgba(220,0,228,1) 100%);
 }
