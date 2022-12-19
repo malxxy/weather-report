@@ -2,11 +2,14 @@ $(document).ready(function() {
     var searchBtn = document.getElementById("search-btn");
 
     // Store city
-    var city = document.getitem
-    lat = 12.890
-    lon = -135.20
-    // $("#city").setItem.
+    let city = $("#city").val()
+    console.log("CITY",city);
+    localStorage.setItem("cityInput", city);
+    console.log("cityInput",cityInput);
+    
     // Get latitude and longitude from city using open maps API
+    let lat = 12.890
+    let lon = -135.20
 
     var weatherApiKey = "78785b54a90c1a313e4af8f23972a484"; // key #1
     var weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}`;
@@ -23,5 +26,5 @@ $(document).ready(function() {
         });
     };
 
-    $("searchBtn").on("click",getWeather())
+    searchBtn.on("click",getWeather())
 });
