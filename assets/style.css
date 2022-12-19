@@ -1,7 +1,5 @@
 :root {
-    --light: #;
-    --medium: #color;
-    --dark: #color;
+    --myBlue: #001fd2;
 }
 
 /* Universal Elements */
@@ -32,6 +30,7 @@ header {
 }
 
 footer {
+    min-height: 50px;
     color: white;
     text-align: center;
     background: rgb(10,10,10);
