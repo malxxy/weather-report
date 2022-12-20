@@ -6,9 +6,10 @@ $(document).ready(function() {
         localStorage.setItem("cityInput", city);
         let cityInput = localStorage.getItem("cityInput",city);
         console.log("getCityInput",cityInput);
+        $("#city-title").append(cityInput.toString());
 
         lat = ""; // set latitude to empty string
-        lon=""; // set longitude to empty string
+        lon= ""; // set longitude to empty string
 
         // Get latitude and longitude from city using open weather maps API
         let weatherApiKey = "78785b54a90c1a313e4af8f23972a484"; // key
@@ -32,8 +33,16 @@ $(document).ready(function() {
                 return response.json();
             })
             .then(function (data) {
-                console.log('City weather data \n-------------');
-                console.log(data);
+                console.log('City weather data \n-------------')
+                let allData = data.list[0].main;
+                console.log(allData)
+                for (let index = 0; index < allData.length; index++) {
+                    let wthrText = allData[index];
+                    let wthrData = document.createElement('tr');
+                    wthrData.appendChild(document.textContent(wthrText));
+                    $(".enter-weather").appendChild(wthrData);
+                }
+                // subract 273.15 for kelvin to celsius
                 // append weather information to dashboard
                 // append forecast information to forecast area
             });

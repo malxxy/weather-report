@@ -28,11 +28,11 @@
     </header>
 
     <main>
-        <section class="search-section d-flex flex-wrap col-4">
+        <section class="search-section d-flex flex-wrap col-3">
             <div class="search-bar">
                 <h3 class="search-heading m-3">Search a city</h3>
                 <input type="city" class="city form-control m-3" id="floatingInput" placeholder="San Francisco, CA">
-                <button type="button" id="search-btn" class="btn btn-primary btn-lg text-white bg-blue m-3 mt-1">Search</button>
+                <button type="button" id="search-btn" class="btn btn-primary btn-md text-white bg-blue m-3 mt-1">Search</button>
               </div>
             <div class="search-history container-fluid">
                 <table class="table-secondary">
@@ -44,30 +44,54 @@
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td>Cities will go here</td>
+                        <td>Cities loading...</td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
-                        <td>Cities will go here</td>
+                        <td>Cities loading...</td>
                       </tr>
                       <tr>
                         <th scope="row">3</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">5</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">6</th>
                       </tr>
                     </tbody>
                   </table>
             </div>
         </section>
-        <section class="dashboard-section container d-flex flex-wrap">
-            <div></div>
+        <section class="dashboard-section d-flex flex-wrap">
+            <div class="card" style="width: 18rem; background: grey;">
+                <div class="card-body">
+                  <h5 id="#city-title" class="card-title">Weather in </h5>
+                  <p class="city-text card-text">Weather loading...</p>
+                  <table class="table-secondary">
+                    <thead>
+                      <tr>
+                        <th scope="col">Weather Data</th>
+                      </tr>
+                    </thead>
+                    <tbody class="enter-weather">
+                    </tbody>
+                  </table>
+                  <a href="#" class="card-link">Nearest Surf Report</a>
+                </div>
+            </div>
         </section>
         <section class="forecast-section container d-flex flex-wrap">
-            <div class="grid text-center">
+            <!-- <div class="grid text-center">
                 <div class="g-col-6 g-col-md-4">Day 1</div>
                 <div class="g-col-6 g-col-md-4">Day 2</div>
                 <div class="g-col-6 g-col-md-4">Day 3</div>
                 <div class="g-col-6 g-col-md-4">Day 4</div>
                 <div class="g-col-6 g-col-md-4">Day 5</div>
-              </div>
+              </div> -->
         </section>
     </main>
     <footer class="fixed-bottom">
