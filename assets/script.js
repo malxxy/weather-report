@@ -6,10 +6,12 @@ $(document).ready(function() {
         localStorage.setItem("cityInput", city);
         let cityInput = localStorage.getItem("cityInput",city);
         console.log("getCityInput",cityInput);
-        $("#city-title").append(cityInput.toString());
+        $("#city-title").append(cityInput); // not working
 
         lat = ""; // set latitude to empty string
         lon= ""; // set longitude to empty string
+
+        $(".forecast-section").show(); // not working
 
         // Get latitude and longitude from city using open weather maps API
         let weatherApiKey = "78785b54a90c1a313e4af8f23972a484"; // key

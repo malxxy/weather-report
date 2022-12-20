@@ -5,6 +5,8 @@
 /* Universal Elements */
 main {
     display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 0;
 }
 
 header {
@@ -15,7 +17,7 @@ header {
 .header-content {
     color: white;
     background: rgb(10,10,10);
-    background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(0,31,210,0.8926164215686274) 0%, rgba(220,0,228,1) 100%);  
+    background: linear-gradient(90deg, rgba(0,31,210,0.8926164215686274) 0%, rgba(220,0,228,1) 100%);  
     text-align: center;
     padding: 20px 10px 15px 10px;
 }
@@ -27,6 +29,7 @@ header {
     -webkit-box-shadow:0px 0px 51px 21px rgba(0,32,210,0.93);
     -moz-box-shadow: 0px 0px 51px 21px rgba(0,32,210,0.93);
     box-shadow: 0px 0px 51px 21px rgba(0,32,210,0.93);
+    min-height: auto;
 }
 
 .dashboard-section {
@@ -39,7 +42,14 @@ header {
 }
 
 .forecast-section {
-    min-width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+    min-width: 70%;
+    background: grey;
+    -webkit-box-shadow:0px 0px 51px 21px rgba(117,15,220,0.93);
+    -moz-box-shadow: 0px 0px 51px 21px rgba(117,15,220,0.93);
+    box-shadow: 0px 0px 51px 21px rgba(117,15,220,0.93);
 }
 
 footer {
@@ -47,5 +57,5 @@ footer {
     color: white;
     text-align: center;
     background: rgb(10,10,10);
-    background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(0,31,210,0.8926164215686274) 0%, rgba(220,0,228,1) 100%);
+    background: linear-gradient(90deg,rgba(0,31,210,0.8926164215686274) 0%, rgba(220,0,228,1) 100%);
 }
