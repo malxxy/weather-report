@@ -1,4 +1,5 @@
 $(document).ready(function() { 
+
     $("#search-btn").click(function(){
          // Store city
         let city= $(this).siblings(".city").val();
@@ -16,15 +17,15 @@ $(document).ready(function() {
         geocodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&limit=5&appid=${weatherApiKey}`;
         fetch(geocodeUrl)
         .then(function (response) {
-            return response.json();
+            return response.json(); // return geo data
         })
         .then(function (geoData) {
-            console.log('Fetch response ');
-            console.log(geoData);
-            lat = geoData[0].lat;
-            lon = geoData[0].lon;
-            console.log("latitude",lat);
-            console.log("longitude",lon);
+            console.log('Fetch response '); //fetch data
+            console.log(geoData); 
+            lat = geoData[0].lat; // grab latitude from city and assign variable
+            lon = geoData[0].lon; // grab longitude from variable and assign variable
+            // console.log("latitude",lat);
+            // console.log("longitude",lon);
             let weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}`;
 
             // fetch open Weather API
@@ -33,21 +34,42 @@ $(document).ready(function() {
                 return response.json();
             })
             .then(function (data) {
-                console.log('City weather data \n-------------')
                 let allData = data.list[0].main;
-                console.log(allData)
+                console.log('City weather data \n-------------',allData);
                 for (let index = 0; index < allData.length; index++) {
-                    let wthrText = allData[index].val();
-                    console.log("looping thru array",wthrText)
-                    let wthrData = document.createElement('li');
-                    const textnode = document.createTextNode(wthrText);
-                    wthrData.appendChild(textnode);
-                    document.getElementById("enter-weather").appendChild(wthrData);
+                    let enterData = $("#enter-weather")
+                    let wthrData = document.createElement("ul");
+                    wthrData.textContent = allData[index] + ": " + allData[index].val();
+                    enterData.appendChild(wthrData);
                 };
                 // subract 273.15 for kelvin to celsius
+                if (allData[index].val() === number) {
+                    let tempNumbers = allData[index].val() - 273.15
+                    tempNumbers = tempNumbers + " degrees celsius";            
+                } else if (allData[index] === pressure) {
+                    let wthrData = allData[index] + "mmHG";
+                }
                 // append weather information to dashboard
                 // append forecast information to forecast area
             });
          });
     });
 });
+
+                // let temp = allData.temp;
+                // let feelsLike = allData.feels_like;
+                // let humidity = allData.humidity;
+                // console.log("temp",temp);
+                // console.log("feelsLike",feelsLike);
+                // console.log("humidity",humidity);
+
+                /// create table row, assign scope as row and title with
+                // var ROW = document.createElement("tr") 
+                // console.log("row content",row);
+                // var HEADER = document.createElement("th");
+                // HEADER.textContent = allData[index];
+                // enterData.ROW.appendchild(HEADER);
+
+                // var wthrData = document.createElement("td");
+                // wthrData.textContent = allData[index].val();
+                // enterData.ROW.appendChild(wthrData);
