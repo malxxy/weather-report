@@ -8,7 +8,7 @@ $(document).ready(function() {
         localStorage.setItem("cityInput", city);
         let cityInput = localStorage.getItem("cityInput",city);
         console.log("getCityInput",cityInput);
-        $("#city-title").append(cityInput); // not working
+        document.getElementById("city-title").append(cityInput); // not working
 
         lat = ""; // set latitude to empty string
         lon= ""; // set longitude to empty string
@@ -39,15 +39,15 @@ $(document).ready(function() {
                 console.log('City weather data \n-------------',allData);
                 // temp
                 let temp = document.createElement("ul");
-                temp.textContent = allData.temp + " degrees Kelvin";
+                temp.textContent = "Temperature: " + allData.temp + " degrees Kelvin";
                 document.getElementById("enter-weather").appendChild(temp);
                 // feels like
                 let feelsLike = document.createElement("ul");
-                feelsLike.textContent = allData.feels_like + " degrees Kelvin";
+                feelsLike.textContent = "Fees like: " + allData.feels_like + " degrees Kelvin";
                 document.getElementById("enter-weather").appendChild(feelsLike);
                 // humidity
                 let humidity = document.createElement("ul");
-                humidity.textContent = allData.humidity + "%";
+                humidity.textContent = "Humidity: " + allData.humidity + "%";
                 document.getElementById("enter-weather").appendChild(humidity);
 
                 $(".forecast-section").show();
