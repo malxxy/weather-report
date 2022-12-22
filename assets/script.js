@@ -1,5 +1,13 @@
 $(document).ready(function() { 
-
+    // let modeBtn = $(".mode-btn");
+    // modeBtn.click(function (){
+    //     var light = true;
+    //     if (light) => dark()
+    //         change light = false;
+    //         switch all dark colors to light colors
+    //         switch all light colors to dark colors
+    // })
+    
     $("#search-btn").click(function(){
         // Empty appended text
         if ($("#enter-weather") === string) {
