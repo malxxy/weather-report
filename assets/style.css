@@ -14,7 +14,8 @@ main {
 
 header {
     display: block;
-    width: 100%;
+    min-width: 100%;
+    margin-bottom: 2rem;
 }
 
 .header-content {
@@ -27,12 +28,11 @@ header {
 
 .search-section {
     margin:2rem;
-    margin-right: 1.75rem;
     color:white;
     background: grey;
-    -webkit-box-shadow:0px 0px 51px 21pxn var(--myBlue);
-    -moz-box-shadow: 0px 0px 51px 21px var(--myBlue);
-    box-shadow: 0px 0px 51px 21px var(--myBlue);
+    -webkit-box-shadow:0px 0px 51px 10pxn var(--myBlue);
+    -moz-box-shadow: 0px 0px 51px 10px var(--myBlue);
+    box-shadow: 0px 0px 51px 10px var(--myBlue);
     min-height: auto;
 }
 
@@ -41,9 +41,9 @@ header {
     margin:2rem;
     margin-left: 1.75rem;
     background: grey;
-    -webkit-box-shadow:0px 0px 51px 21px var(--myPink);
-    -moz-box-shadow: 0px 0px 51px 21px var(--myPink);
-    box-shadow: 0px 0px 51px 21px var(--myPink);
+    -webkit-box-shadow:0px 0px 51px 10px var(--myPink);
+    -moz-box-shadow: 0px 0px 51px 10x var(--myPink);
+    box-shadow: 0px 0px 51px 10px var(--myPink);
 }
 
 .forecast-section {
@@ -53,9 +53,9 @@ header {
     margin-top: 4rem;
     min-width: 90%;
     background: grey;
-    -webkit-box-shadow:0px 0px 51px 21px var(--myPurple);
-    -moz-box-shadow: 0px 0px 51px 21px var(--myPurple);
-    box-shadow: 0px 0px 51px 21px var(--myPurple);
+    -webkit-box-shadow:0px 0px 51px 10px var(--myPurple);
+    -moz-box-shadow: 0px 0px 51px 10px var(--myPurple);
+    box-shadow: 0px 0px 51px 10px var(--myPurple);
 }
 
 footer {

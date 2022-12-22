@@ -27,7 +27,7 @@
     </header>
 
     <main>
-        <section class="search-section d-flex flex-wrap col-3">
+        <section class="search-section d-flex flex-wrap col-3 rounded">
             <div class="search-bar">
                 <h3 class="search-heading m-3">Search a city</h3>
                 <input type="city" class="city form-control m-3" id="floatingInput" placeholder="San Francisco, CA">
@@ -38,11 +38,10 @@
                 <div class="search-append"></div>
             </div>
         </section>
-        <section class="dashboard-section d-flex flex-wrap">
+        <section class="dashboard-section d-flex flex-wrap rounded">
             <div class="card" style="width: 18rem; background: grey;">
                 <div class="card-body w-100">
                   <h3 id="city-title" class="card-title text-white">Weather in </h3>
-                  <p class="city-text card-text">Weather loading...</p>
                   <div>
                     <p id="enter-weather"></p>
                   </div>
@@ -50,7 +49,7 @@
                 </div>
             </div>
         </section>
-        <section class="forecast-section container d-flex flex-wrap">
+        <section class="forecast-section container d-flex flex-wrap rounded">
           <div class="card" id="forecast-card" style="width: 18rem; background: grey;">
             <div class="card-body">
               <h5 id="#city-title" class="card-title">5 Day Forecast</h5>
