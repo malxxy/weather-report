@@ -27,7 +27,7 @@ $(document).ready(function() {
             lon = geoData[0].lon; // grab longitude from variable and assign variable
             // console.log("latitude",lat);
             // console.log("longitude",lon);
-            let weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}`;
+            let weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`;
 
             // fetch open Weather API
             fetch(weatherUrl)
@@ -39,16 +39,20 @@ $(document).ready(function() {
                 console.log('City weather data \n-------------',allData);
                 // temp
                 let temp = document.createElement("ul");
-                temp.textContent = "Temperature: " + allData.temp + " degrees Kelvin";
+                temp.textContent = "Temperature: " + allData.temp + " degrees Fahrenheit";
                 document.getElementById("enter-weather").appendChild(temp);
                 // feels like
                 let feelsLike = document.createElement("ul");
-                feelsLike.textContent = "Fees like: " + allData.feels_like + " degrees Kelvin";
+                feelsLike.textContent = "Fees like: " + allData.feels_like + " degrees Fahrenheit";
                 document.getElementById("enter-weather").appendChild(feelsLike);
                 // humidity
                 let humidity = document.createElement("ul");
                 humidity.textContent = "Humidity: " + allData.humidity + "%";
                 document.getElementById("enter-weather").appendChild(humidity);
+                
+                let newBtn = document.createElement("btn");
+                newBtn.textContent = cityInput;
+                document.getElementById("search-append");
 
                 $(".forecast-section").show();
                 // append weather information to dashboard
