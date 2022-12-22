@@ -1,4 +1,5 @@
 $(document).ready(function() { 
+    $(".forecast-section").hide();
 
     $("#search-btn").click(function(){
          // Store city
@@ -36,19 +37,20 @@ $(document).ready(function() {
             .then(function (data) {
                 let allData = data.list[0].main;
                 console.log('City weather data \n-------------',allData);
-                for (let index = 0; index < allData.length; index++) {
-                    let enterData = $("#enter-weather")
-                    let wthrData = document.createElement("ul");
-                    wthrData.textContent = allData[index] + ": " + allData[index].val();
-                    enterData.appendChild(wthrData);
-                };
-                // subract 273.15 for kelvin to celsius
-                if (allData[index].val() === number) {
-                    let tempNumbers = allData[index].val() - 273.15
-                    tempNumbers = tempNumbers + " degrees celsius";            
-                } else if (allData[index] === pressure) {
-                    let wthrData = allData[index] + "mmHG";
-                }
+                // temp
+                let temp = document.createElement("ul");
+                temp.textContent = allData.temp + " degrees Kelvin";
+                document.getElementById("enter-weather").appendChild(temp);
+                // feels like
+                let feelsLike = document.createElement("ul");
+                feelsLike.textContent = allData.feels_like + " degrees Kelvin";
+                document.getElementById("enter-weather").appendChild(feelsLike);
+                // humidity
+                let humidity = document.createElement("ul");
+                humidity.textContent = allData.humidity + "%";
+                document.getElementById("enter-weather").appendChild(humidity);
+
+                $(".forecast-section").show();
                 // append weather information to dashboard
                 // append forecast information to forecast area
             });
@@ -56,12 +58,7 @@ $(document).ready(function() {
     });
 });
 
-                // let temp = allData.temp;
-                // let feelsLike = allData.feels_like;
-                // let humidity = allData.humidity;
-                // console.log("temp",temp);
-                // console.log("feelsLike",feelsLike);
-                // console.log("humidity",humidity);
+
 
                 /// create table row, assign scope as row and title with
                 // var ROW = document.createElement("tr") 
@@ -73,3 +70,21 @@ $(document).ready(function() {
                 // var wthrData = document.createElement("td");
                 // wthrData.textContent = allData[index].val();
                 // enterData.ROW.appendChild(wthrData);
+
+            // for (let index = 0; index < allData.length; index++) {
+                //     let enterData = $("#enter-weather")
+                //     console.log(enterData);
+                //     let wthrData = document.createElement("ul");
+                //     wthrData.textContent = allData[index] + ": " + allData[index].val();
+                //     console.log("wthrData",wthrData);
+                //     enterData.appendChild(wthrData);
+            
+
+                    // subract 273.15 for kelvin to celsius
+                    // if (allData[index].val() === number) {
+                    //     let tempNumbers = allData[index].val() - 273.15
+                    //     tempNumbers = tempNumbers + " degrees celsius";            
+                    // } else if (allData[index] === pressure) {
+                    //     let wthrData = allData[index] + "mmHG";
+                    // }
+                // };
