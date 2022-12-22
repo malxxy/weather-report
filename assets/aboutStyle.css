@@ -19,6 +19,10 @@ header {
     align-items: center;
 }
 
+h1 {
+    text-align: center;
+}
+
 .header-stuff {
     color: white;
     background: rgb(10,10,10);
@@ -26,6 +30,11 @@ header {
     text-align: center;
     padding: 20px 10px 15px 10px;
 }
+
+/* .card-info {
+    background-color: #700fdb;
+    color: white;
+} */
 
 footer {
     min-height: 50px;

@@ -1,6 +1,11 @@
 $(document).ready(function() { 
 
     $("#search-btn").click(function(){
+        // Empty appended text
+        if ($("#enter-weather") === string) {
+            $("#enter-weather") = "";
+        } 
+        
          // Store city
         let city= $(this).siblings(".city").val();
         console.log("City",city);
@@ -57,21 +62,3 @@ $(document).ready(function() {
          });
     });
 });
-
-            // for (let index = 0; index < allData.length; index++) {
-                //     let enterData = $("#enter-weather")
-                //     console.log(enterData);
-                //     let wthrData = document.createElement("ul");
-                //     wthrData.textContent = allData[index] + ": " + allData[index].val();
-                //     console.log("wthrData",wthrData);
-                //     enterData.appendChild(wthrData);
-            
-
-                    // subract 273.15 for kelvin to celsius
-                    // if (allData[index].val() === number) {
-                    //     let tempNumbers = allData[index].val() - 273.15
-                    //     tempNumbers = tempNumbers + " degrees celsius";            
-                    // } else if (allData[index] === pressure) {
-                    //     let wthrData = allData[index] + "mmHG";
-                    // }
-                // };
