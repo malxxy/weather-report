@@ -1,5 +1,4 @@
 $(document).ready(function() { 
-    $(".forecast-section").hide();
 
     $("#search-btn").click(function(){
          // Store city
@@ -53,27 +52,11 @@ $(document).ready(function() {
                 let newBtn = document.createElement("btn");
                 newBtn.textContent = cityInput;
                 document.getElementById("search-append");
-
-                $(".forecast-section").show();
-                // append weather information to dashboard
-                // append forecast information to forecast area
+                newBtn.setAttribute("style","background-color:#700fdb; color:white;");
             });
          });
     });
 });
-
-
-
-                /// create table row, assign scope as row and title with
-                // var ROW = document.createElement("tr") 
-                // console.log("row content",row);
-                // var HEADER = document.createElement("th");
-                // HEADER.textContent = allData[index];
-                // enterData.ROW.appendchild(HEADER);
-
-                // var wthrData = document.createElement("td");
-                // wthrData.textContent = allData[index].val();
-                // enterData.ROW.appendChild(wthrData);
 
             // for (let index = 0; index < allData.length; index++) {
                 //     let enterData = $("#enter-weather")

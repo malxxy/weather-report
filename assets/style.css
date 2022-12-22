@@ -1,5 +1,7 @@
 :root {
     --myBlue: #001fd2;
+    --myPurple: #700fdb;
+    --myPink: #dc00e4;
 }
 
 /* Universal Elements */
@@ -7,17 +9,12 @@ main {
     display: flex;
     flex-wrap: wrap;
     flex: 1 0 0;
+    justify-content: space-around;
 }
 
 header {
     display: block;
     width: 100%;
-}
-
-.navbar {
-    justify-content: center;
-    display: flex;
-    flex:wrap;
 }
 
 .header-content {
@@ -29,7 +26,8 @@ header {
 }
 
 .search-section {
-    margin: 2rem;
+    margin:2rem;
+    margin-right: 1.75rem;
     color:white;
     background: grey;
     -webkit-box-shadow:0px 0px 51px 21px rgba(0,32,210,0.93);
@@ -39,23 +37,25 @@ header {
 }
 
 .dashboard-section {
-    min-width: 60%;
-    margin: 2rem;
+    min-width: 55%;
+    margin:2rem;
+    margin-left: 1.75rem;
     background: grey;
-    -webkit-box-shadow:0px 0px 51px 21px rgba(220,0,228,0.93);
-    -moz-box-shadow: 0px 0px 51px 21px rgba(220,0,228,0.93);
-    box-shadow: 0px 0px 51px 21px rgba(220,0,228,0.93);
+    -webkit-box-shadow:0px 0px 51px 21px var(--myPink);
+    -moz-box-shadow: 0px 0px 51px 21px var(--myPink);
+    box-shadow: 0px 0px 51px 21px var(--myPink);
 }
 
 .forecast-section {
     display: flex;
     flex-wrap: wrap;
     margin: 2rem;
-    min-width: 70%;
+    margin-top: 4rem;
+    min-width: 90%;
     background: grey;
-    -webkit-box-shadow:0px 0px 51px 21px rgba(117,15,220,0.93);
-    -moz-box-shadow: 0px 0px 51px 21px rgba(117,15,220,0.93);
-    box-shadow: 0px 0px 51px 21px rgba(117,15,220,0.93);
+    -webkit-box-shadow:0px 0px 51px 21px var(--myPurple);
+    -moz-box-shadow: 0px 0px 51px 21px var(--myPurple);
+    box-shadow: 0px 0px 51px 21px var(--myPurple);
 }
 
 footer {
@@ -63,5 +63,12 @@ footer {
     color: white;
     text-align: center;
     background: rgb(10,10,10);
-    background: linear-gradient(90deg,rgba(0,31,210,0.8926164215686274) 0%, rgba(220,0,228,1) 100%);
+    background: linear-gradient(90deg,var(--myBlue) 0%, var(--myPink) 100%);
+}
+
+ul {
+    font-weight: bold;
+    font-size: large;
+    color: var(--myPurple);
+    /* font-family: */
 }
