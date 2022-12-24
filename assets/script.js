@@ -1,20 +1,7 @@
 $(document).ready(function() { 
-    // let modeBtn = $(".mode-btn");
-    // modeBtn.click(function (){
-    //     var light = true;
-    //     if (light) => dark()
-    //         change light = false;
-    //         switch all dark colors to light colors
-    //         switch all light colors to dark colors
-    // })
-    
     $("#search-btn").click(function(){
-        // Empty appended text
-        if ($("#enter-weather") === string) {
-            $("#enter-weather") = "";
-        } 
-        
-         // Store city
+         
+        // Store city
         let city= $(this).siblings(".city").val();
         console.log("City",city);
         localStorage.setItem("cityInput", city);
@@ -47,6 +34,7 @@ $(document).ready(function() {
                 return response.json();
             })
             .then(function (data) {
+                console.log("DATA",data);
                 let allData = data.list[0].main;
                 console.log('City weather data \n-------------',allData);
                 // temp
@@ -66,7 +54,35 @@ $(document).ready(function() {
                 newBtn.textContent = cityInput;
                 document.getElementById("search-append");
                 newBtn.setAttribute("style","background-color:#700fdb; color:white;");
+
+                let weather = document.createElement("ul");
+                weather.textContent = "Weather: " + data.list[0].weather[0].main;
+                document.getElementById("enter-weather").appendChild(weather);
+            });
+
+            fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (forecastData) {
+                let forecast = forecastData.list;
+                console.log('Forecast \n-------------',forecast);
             });
          });
     });
 });
+
+        // Empty appended text
+        // if ($("#enter-weather") === string) {
+        //     $("#enter-weather") = "";
+        // } 
+
+        // let modeBtn = $(".mode-btn");
+        // modeBtn.click(function (){
+        //     var light = true;
+        //     if (light) => dark()
+        //         change light = false;
+        //         switch all dark colors to light colors
+        //         switch all light colors to dark colors
+        // })
+    
