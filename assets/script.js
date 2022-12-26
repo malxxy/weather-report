@@ -32,8 +32,7 @@ $(document).ready(function() {
             lon = geoData[0].lon; // grab longitude from variable and assign variable
             let weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`;
             
-            // capture date using day js and append OR capture date using open weather maps api
-
+            // display day of week, date and time using day js or open weather api
             // fetch open Weather API
             fetch(weatherUrl)
             .then(function (response) {
@@ -94,9 +93,11 @@ $(document).ready(function() {
             
                 for (let i = 1; i < forecastData.length; i++) { // loop through every day and return 
                     let fCard = document.createElement("card") // create a new card
-                    // assign id of fCard to variable
-                    // title each card with the day let fTitle = document.createElement("h5");
-                    fData =  forecastData.list[i].main;
+                    let fTitle = document.createElement("h5")
+                    fTitle.textContent = "PLACE HOLDER - FIND DAY ON OPEN WEATHER OR DAY JS"
+                    fCard.appendChild(fTitle)
+
+                    fData =  forecastData.list[i].main; // variable for fetched data
 
                     // temp
                     let fTemp = document.createElement("p");
