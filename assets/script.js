@@ -12,10 +12,10 @@ $(document).ready(function() {
         lat = ""; // set latitude to empty string
         lon= ""; // set longitude to empty string
 
-        let newBtn = document.createElement("btn");
-        newBtn.textContent = cityInput;
-        document.getElementById("search-append").appendChild(newBtn);
-        newBtn.setAttribute(style,"background-color:#700fdb; color:white;");
+        // let newBtn = document.createElement("btn");
+        // newBtn.textContent = cityInput;
+        // document.getElementById("search-append").appendChild(newBtn);
+        // newBtn.setAttribute(style,"background-color:#700fdb; color:white;");
 
         // Get latitude and longitude from city using open weather maps API
         let weatherApiKey = "78785b54a90c1a313e4af8f23972a484"; // key
@@ -92,13 +92,13 @@ $(document).ready(function() {
                 console.log('Forecast \n-------------',forecast);
             
                 for (let i = 1; i < forecastData.length; i++) { // loop through every day and return 
-                    let fCard = document.createElement("card") // create a new card
-                    let fTitle = document.createElement("h5")
-                    fTitle.textContent = "PLACE HOLDER - FIND DAY ON OPEN WEATHER OR DAY JS"
-                    fCard.appendChild(fTitle)
+                    let fCard = document.createElement("card"); // create a new card
+                    let fTitle = document.createElement("h5");
+                    fTitle.textContent = "PLACE HOLDER FOR DATE- FIND DAY ON OPEN WEATHER OR DAY JS";
+                    fCard.appendChild(fTitle);
 
                     fData =  forecastData.list[i].main; // variable for fetched data
-
+                    console.log('forecast data',fData);
                     // temp
                     let fTemp = document.createElement("p");
                     fTemp.textContent = "Temperature: " + fData.fTemp + " degrees Fahrenheit";
