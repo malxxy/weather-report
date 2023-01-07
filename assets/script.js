@@ -79,10 +79,11 @@ $(document).ready(function() {
                 wind.textContent = "Wind speed: " + data.list[0].wind.speed + "mph";
                 document.getElementById("enter-weather").appendChild(wind);
 
-                // let newBtn = document.createElement("btn");
-                // newBtn.textContent = cityInput;
-                // document.getElementById("search-append").appendChild(newBtn);
-                // newBtn.setAttribute(style,"background-color:#700fdb; color:white;");
+                let newBtn = document.createElement("btn");
+                console.log("checking city input",cityInput);
+                newBtn.textContent = cityInput;
+                document.getElementById("search-append").appendChild(newBtn);
+                $(newBtn).attr("style","background-color: #700fdb; color:white;border-radius: 12px; padding: 10px; margin:5px;")
             });
 
             fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`)
