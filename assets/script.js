@@ -48,19 +48,19 @@ $(document).ready(function() {
                 document.getElementById("enter-weather").appendChild(weather);
                
                 console.log("icon",weatherContent);
-                let icon = document.createElement("img");
-                icon.textContent = "";
+                let weatherIcon = document.createElement("img");
+                weatherIcon.textContent = "";
                 document.getElementById("insert-icon").appendChild(icon);
                 if (weatherContent === "Clouds") {
-                     $(icon).addClass("fa-solid fa-cloud");
+                     $(weatherIcon).addClass("fa-solid fa-cloud");
                 } else if (weatherContent === "Clear") {
-                    $(icon).addClass("fa-solid fa-sun")
+                    $(weatherIcon).addClass("fa-solid fa-sun")
                 } else if (weatherContent === "Rain") {
-                    $(icon).addClass("fa-solid fa-cloud-showers-heavy");
+                    $(weatherIcon).addClass("fa-solid fa-cloud-showers-heavy");
                 } else if (weatherContent === "Snow") {;
-                    $(icon).addClass("fa-regular fa-snowflake");
+                    $(weatherIcon).addClass("fa-regular fa-snowflake");
                 } else {
-                    $(icon).addClass("fa-solid fa-circle-exclamation");
+                    $(weatherIcon).addClass("fa-solid fa-circle-exclamation");
                     console.log("Error: Weather icon not applicable");
                 }
 
