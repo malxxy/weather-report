@@ -7,15 +7,12 @@ $(document).ready(function() {
         localStorage.setItem("cityInput", city);
         let cityInput = localStorage.getItem("cityInput",city);
         console.log("getCityInput",cityInput);
+        let cityTitle = "";
+        cityTitle.textContent = cityInput;
         document.getElementById("city-title").append(cityInput); // not working
 
         lat = ""; // set latitude to empty string
         lon= ""; // set longitude to empty string
-
-        // let newBtn = document.createElement("btn");
-        // newBtn.textContent = cityInput;
-        // document.getElementById("search-append").appendChild(newBtn);
-        // newBtn.setAttribute(style,"background-color:#700fdb; color:white;");
 
         // Get latitude and longitude from city using open weather maps API
         let weatherApiKey = "78785b54a90c1a313e4af8f23972a484"; // key
@@ -81,6 +78,11 @@ $(document).ready(function() {
                 let wind = document.createElement("ul");
                 wind.textContent = "Wind speed: " + data.list[0].wind.speed + "mph";
                 document.getElementById("enter-weather").appendChild(wind);
+
+                // let newBtn = document.createElement("btn");
+                // newBtn.textContent = cityInput;
+                // document.getElementById("search-append").appendChild(newBtn);
+                // newBtn.setAttribute(style,"background-color:#700fdb; color:white;");
             });
 
             fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`)
