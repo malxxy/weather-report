@@ -49,20 +49,33 @@ $(document).ready(function() {
                
                 console.log("icon",weatherContent);
                 let weatherIcon = document.createElement("img");
-                weatherIcon.textContent = "";
-                document.getElementById("insert-icon").appendChild(icon);
-                if (weatherContent === "Clouds") {
-                     $(weatherIcon).addClass("fa-solid fa-cloud");
-                } else if (weatherContent === "Clear") {
-                    $(weatherIcon).addClass("fa-solid fa-sun")
-                } else if (weatherContent === "Rain") {
-                    $(weatherIcon).addClass("fa-solid fa-cloud-showers-heavy");
-                } else if (weatherContent === "Snow") {;
-                    $(weatherIcon).addClass("fa-regular fa-snowflake");
-                } else {
-                    $(weatherIcon).addClass("fa-solid fa-circle-exclamation");
-                    console.log("Error: Weather icon not applicable");
-                }
+                // weatherIcon.textContent = "";
+                $(weatherIcon).attr("src",weatherUrl + "/"+ data.list[0].weather[0].id + "/.png");
+                document.getElementById("insert-icon").appendChild(weatherIcon);
+                
+                // console.log("icon",weatherContent);
+                // let weatherIcon = document.createElement("img");
+
+                // if (weatherContent === "Clouds") {
+                //      $(weatherIcon).addClass("fa-solid fa-cloud");
+                //      weatherIcon.textContent = "";
+                //      $(insert-icon).append(weatherIcon);
+                // } else if (weatherContent === "Clear") {
+                //     $(weatherIcon).addClass("fa-solid fa-sun")
+                //     weatherIcon.textContent = "";
+                //      $(insert-icon).append(weatherIcon);
+                // } else if (weatherContent === "Rain") {
+                //     $(weatherIcon).addClass("fa-solid fa-cloud-showers-heavy");
+                //     weatherIcon.textContent = "";
+                //      $(insert-icon).append(weatherIcon);
+                // } else if (weatherContent === "Snow") {;
+                //     $(weatherIcon).addClass("fa-regular fa-snowflake");
+                //     weatherIcon.textContent = "";
+                //      $(insert-icon).append(weatherIcon);
+                // } else {
+                //     $(weatherIcon).addClass("fa-solid fa-circle-exclamation");
+                //     console.log("Error: Weather icon not applicable");
+                // }
 
                 // temp
                 let temp = document.createElement("ul");
