@@ -48,7 +48,7 @@ $(document).ready(function() {
                 document.getElementById("enter-weather").appendChild(weather);
                
                 console.log("icon",weatherContent);
-                icon = document.createElement("i");
+                let icon = document.createElement("i");
                 icon.textContent = "";
                 document.getElementById("insert-icon").appendChild(icon);
                 if (weatherContent === "Clouds") {
