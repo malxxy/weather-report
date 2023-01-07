@@ -1,6 +1,7 @@
 $(document).ready(function() { 
     $("#search-btn").click(function(){
-         
+        $("#enter-weather").html("");
+        $("#city-name").html("");
         // Store city
         let city= $(this).siblings(".city").val();
         console.log("City",city);
@@ -9,7 +10,7 @@ $(document).ready(function() {
         console.log("getCityInput",cityInput);
         let cityTitle = "";
         cityTitle.textContent = cityInput;
-        document.getElementById("city-title").append(cityInput); // not working
+        document.getElementById("city-name").append(cityInput);
 
         lat = ""; // set latitude to empty string
         lon= ""; // set longitude to empty string
@@ -42,24 +43,25 @@ $(document).ready(function() {
 
                 // weather & icon to match weather
                 let weather = document.createElement("ul");
-                weather.textContent = "Weather: " + data.list[0].weather[0].main;
+                let weatherContent = data.list[0].weather[0].main;
+                weather.textContent = "Weather: " + weatherContent;
                 document.getElementById("enter-weather").appendChild(weather);
-                 if (weather === "Clouds") {
-                        icon = document.createElement("i");
-                        icon.textContent = "Temporary icon place holder";
-                        document.getElementById("insert-icon").appendChild(icon);
-                } else if (weather === "Sun") {
-                    icon = document.createElement("i");
-                    icon.textContent = "Temporary icon place holder";
-                    document.getElementById("insert-icon").appendChild(icon);
-                } else if (weather === "Rain") {
-                    icon = document.createElement("i");
-                    icon.textContent = "Temporary icon place holder";
-                    document.getElementById("insert-icon").appendChild(icon);
-                } else if (weather === "Snow") {
-                    icon = document.createElement("i");
-                    icon.textContent = "Temporary icon place holder"
-                    document.getElementById("insert-icon").appendChild(icon);
+               
+                console.log("icon",weatherContent);
+                icon = document.createElement("i");
+                icon.textContent = "";
+                document.getElementById("insert-icon").appendChild(icon);
+                if (weatherContent === "Clouds") {
+                     $(icon).addClass("fa-solid fa-cloud");
+                } else if (weatherContent === "Clear") {
+                    $(icon).addClass("fa-solid fa-sun")
+                } else if (weatherContent === "Rain") {
+                    $(icon).addClass("fa-solid fa-cloud-showers-heavy");
+                } else if (weatherContent === "Snow") {;
+                    $(icon).addClass("fa-regular fa-snowflake");
+                } else {
+                    $(icon).addClass("fa-solid fa-circle-exclamation");
+                    console.log("Error: Weather icon not applicable");
                 }
 
                 // temp
@@ -80,7 +82,6 @@ $(document).ready(function() {
                 document.getElementById("enter-weather").appendChild(wind);
 
                 let newBtn = document.createElement("btn");
-                console.log("checking city input",cityInput);
                 newBtn.textContent = cityInput;
                 document.getElementById("search-append").appendChild(newBtn);
                 $(newBtn).attr("style","background-color: #700fdb; color:white;border-radius: 12px; padding: 10px; margin:5px;")
