@@ -41,41 +41,18 @@ $(document).ready(function() {
                 let allData = data.list[0].main;
                 console.log('City weather data \n-------------',allData);
 
-                // weather & icon to match weather
+                // get main weather and show on current weather section 
                 let weather = document.createElement("ul");
                 let weatherContent = data.list[0].weather[0].main;
                 weather.textContent = "Weather: " + weatherContent;
                 document.getElementById("enter-weather").appendChild(weather);
-               
-                console.log("icon",weatherContent);
+               // get weather icon and append to current weather 
                 let weatherIcon = document.createElement("img");
-                // weatherIcon.textContent = "";
-                $(weatherIcon).attr("src",weatherUrl + "/"+ data.list[0].weather[0].id + "/.png");
-                document.getElementById("insert-icon").appendChild(weatherIcon);
-                
-                // console.log("icon",weatherContent);
-                // let weatherIcon = document.createElement("img");
+                let iconID = data.list[0].weather[0].id;
+                console.log("Icon ID",iconID);
+                weatherIcon.src = `http://openweathermap.org/img/wn/${iconID}.png`;
+                $(insert-iconID).append(weatherIcon);
 
-                // if (weatherContent === "Clouds") {
-                //      $(weatherIcon).addClass("fa-solid fa-cloud");
-                //      weatherIcon.textContent = "";
-                //      $(insert-icon).append(weatherIcon);
-                // } else if (weatherContent === "Clear") {
-                //     $(weatherIcon).addClass("fa-solid fa-sun")
-                //     weatherIcon.textContent = "";
-                //      $(insert-icon).append(weatherIcon);
-                // } else if (weatherContent === "Rain") {
-                //     $(weatherIcon).addClass("fa-solid fa-cloud-showers-heavy");
-                //     weatherIcon.textContent = "";
-                //      $(insert-icon).append(weatherIcon);
-                // } else if (weatherContent === "Snow") {;
-                //     $(weatherIcon).addClass("fa-regular fa-snowflake");
-                //     weatherIcon.textContent = "";
-                //      $(insert-icon).append(weatherIcon);
-                // } else {
-                //     $(weatherIcon).addClass("fa-solid fa-circle-exclamation");
-                //     console.log("Error: Weather icon not applicable");
-                // }
 
                 // temp
                 let temp = document.createElement("ul");
