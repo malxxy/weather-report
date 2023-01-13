@@ -2,6 +2,7 @@ $(document).ready(function() {
     $("#search-btn").click(function(){
         $("#enter-weather").html("");
         $("#city-name").html("");
+        $("#insert-IconID").html("");
         // Store city
         let city= $(this).siblings(".city").val();
         console.log("City",city);
@@ -40,8 +41,16 @@ $(document).ready(function() {
                 console.log("DATA",data);
                 let allData = data.list[0].main;
                 console.log('City weather data \n-------------',allData);
-
+                
+                // append current date and time
+                // let current = data.current.dt;
+                // console.log("current dt",current);
+                // let currentTimeZone = data.current.timezone;
+                // console.log("current timezone",currentTimeZone);
+                // let offset = data.current.timezone_offset;
+                // console.log("current offset",offset);
                 // get main weather and show on current weather section 
+
                 let weather = document.createElement("ul");
                 let weatherContent = data.list[0].weather[0].main;
                 weather.textContent = "Weather: " + weatherContent;
@@ -92,7 +101,7 @@ $(document).ready(function() {
                     console.log('forecast data',fData);
                     // temp
                     let fTemp = document.createElement("p");
-                    fTemp.textContent = "Temperature: " + fData.temp + " degrees Fahrenheit";
+                    fTemp.textContent = "Temperature: " + fData.temp + " degrees F";
                     // humidity
                     let fHumidity = document.createElement("p");
                     fHumidity.textContent = "Humidity: " + fData.humidity + "%";
@@ -112,7 +121,7 @@ $(document).ready(function() {
     });
 }); 
 // notes
-// feels like
+                // feels like
                 // let feelsLike = document.createElement("ul");
                 // feelsLike.textContent = "Fees like: " + allData.feels_like + " degrees F";
                 // document.getElementById("enter-weather").appendChild(feelsLike);

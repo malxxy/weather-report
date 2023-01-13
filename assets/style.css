@@ -33,7 +33,6 @@ header {
     -webkit-box-shadow:0px 0px 51px 10pxn var(--myBlue);
     -moz-box-shadow: 0px 0px 51px 10px var(--myBlue);
     box-shadow: 0px 0px 51px 10px var(--myBlue);
-    min-height: 100%;
 }
 
 .dashboard-section {
@@ -76,8 +75,4 @@ footer {
 .footer-text {
     padding: 2rem;
     /* vertically align text */
-}
-
-#forecast-section p {
-    color:aliceblue;
 }
