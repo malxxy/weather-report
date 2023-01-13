@@ -41,33 +41,29 @@
                 </div>
             </div>
         </section>
-        <section class="dashboard-section d-flex flex-wrap rounded" style="background:grey">
-            <div class="card" style="width: 18rem; background:grey">
-                <div class="card-body w-100">
-                  <h3 class="card-title text-white">Weather in 
-                    <span id="city-name"></span>
-                  </h3>
-                  <div class="date"></div>
-                  <div class="time"></div>
-                  <div>
-                    <div id="insert-icon"></div>
-                    <p id="enter-weather"></p>
-                  </div>
-                  <a href="#" class="card-link">Nearest Surf Report</a>
+        <section class="dashboard-section card d-flex flex-wrap rounded" style="background:grey; width:18rem;">
+              <div class="card-body w-100">
+                <h3 class="card-title text-white">Weather in 
+                  <span id="city-name"></span>
+                </h3>
+                <div class="date"></div>
+                <div class="time"></div>
+                <div>
+                <div id="insert-iconID"></div>
+                  <p id="enter-weather"></p>
                 </div>
+                <!-- <a href="#" class="card-link">Nearest Surf Report</a> -->
             </div>
         </section>
-        <section class="forecast-section container d-flex flex-wrap rounded border-dark" 
+        <section id="forecast-section" class="forecast-section container d-flex flex-wrap rounded border-dark" 
         style="background-color:#212529;">
-          <div class="card" id="forecast-card" style="width: 18rem; background:grey">
-            <div class="card-body">
+          <div id="forecast-card"">
               <h5 id="#city-title" class="card-title" style="color:White;">5 Day Forecast</h5>
               <p class="city-text card-text" style="color:White;">Forecast loading...</p>
-            </div>
           </div>
         </section>
     </main>
-    <footer class="fixed-bottom">
+    <footer>
         <p class="footer-text center-align align-middle">Any weather, any city, any time. Code by Malia Yraguen.</p>
     </footer>
     

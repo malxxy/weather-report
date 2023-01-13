@@ -48,20 +48,16 @@ $(document).ready(function() {
                 document.getElementById("enter-weather").appendChild(weather);
                // get weather icon and append to current weather 
                 let weatherIcon = document.createElement("img");
-                let iconID = data.list[0].weather[0].id;
+                let iconID = data.list[0].weather[0].icon;
                 console.log("Icon ID",iconID);
                 weatherIcon.src = `http://openweathermap.org/img/wn/${iconID}.png`;
-                $(insert-iconID).append(weatherIcon);
-
+                $("#insert-iconID").append(weatherIcon);
 
                 // temp
                 let temp = document.createElement("ul");
                 temp.textContent = "Temperature: " + allData.temp + " degrees F";
                 document.getElementById("enter-weather").appendChild(temp);
-                // feels like
-                let feelsLike = document.createElement("ul");
-                feelsLike.textContent = "Fees like: " + allData.feels_like + " degrees F";
-                document.getElementById("enter-weather").appendChild(feelsLike);
+                
                 // humidity
                 let humidity = document.createElement("ul");
                 humidity.textContent = "Humidity: " + allData.humidity + "%";
@@ -85,32 +81,38 @@ $(document).ready(function() {
                 let forecast = forecastData.list;
                 console.log('Forecast \n-------------',forecast);
             
-                for (let i = 1; i < forecastData.length; i++) { // loop through every day and return 
+                for (let i = 7; i < forecast.length; i+=8) { // loop through every day and return 
                     let fCard = document.createElement("card"); // create a new card
                     let fTitle = document.createElement("h5");
-                    fTitle.textContent = "PLACE HOLDER FOR DATE- FIND DAY ON OPEN WEATHER OR DAY JS";
-                    fCard.appendChild(fTitle);
-
-                    fData =  forecastData.list[i].main; // variable for fetched data
+                    let newDate = (forecast[i].dt)*1000;
+                    let timeZone = (forecast[i].timezone)*1000;
+                    fTitle.textContent = new Date(newDate - timeZone);
+                    
+                    fData =  forecast[i].main; // variable for fetched data
                     console.log('forecast data',fData);
                     // temp
                     let fTemp = document.createElement("p");
-                    fTemp.textContent = "Temperature: " + fData.fTemp + " degrees Fahrenheit";
-                    fCard.appendChild(fTemp);
+                    fTemp.textContent = "Temperature: " + fData.temp + " degrees Fahrenheit";
                     // humidity
                     let fHumidity = document.createElement("p");
-                    fHumidity.textContent = "Humidity: " + fData.fHumidity + "%";
-                    fCard.appendChild(fHumidity);
+                    fHumidity.textContent = "Humidity: " + fData.humidity + "%";
                     // weather
                     let fWeather = document.createElement("p");
-                    fWeather.textContent = "Weather: " + forecast.list[i].weather[0].main;
-                    fCard.appendChild(fWeather);
+                    fWeather.textContent = "Weather: " + forecast[i].weather[0].main;
                     // weather
-                    let wind = document.createElement("p");
-                    wind.textContent = "Wind speed: " + forecast.list[i].wind.speed + "mph";
-                    fCard.appendChild(wind);
+                    let fWind = document.createElement("p");
+                    fWind.textContent = "Wind speed: " + forecast[i].wind.speed + "mph";
+                    
+                    document.getElementById("forecast-section").appendChild(fCard);
+                    fCard.appendChild(fTitle);
+                    fCard.append(fTemp, fHumidity, fWeather, fWind)
                     }
             });
          });
     });
 }); 
+// notes
+// feels like
+                // let feelsLike = document.createElement("ul");
+                // feelsLike.textContent = "Fees like: " + allData.feels_like + " degrees F";
+                // document.getElementById("enter-weather").appendChild(feelsLike);
