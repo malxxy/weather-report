@@ -3,17 +3,17 @@ $(document).ready(function() {
     const monthsOfYear = ["January", "February","MArch","April","May","June","July","August","September","October","November","December"];
     const daysOfWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
-    setInterval(function(){
-        let time = new Date();
-        let date = time.getDate();
-        let day = time.getDay();
-        let month = time.getMonth();
-        let hour = time.getHours();
-        let minutes = time.getMinutes();
-        console.log("date",date);
-        document.getElementById("day").innerHTML = daysOfWeek[day] + ", " + monthsOfYear[month] + " " + date;
-        document.getElementById("time").innerHTML = hour + ":" + minutes;
-    }, 1000);
+    // setInterval(function(){
+    //     let time = new Date();
+    //     let date = time.getDate();
+    //     let day = time.getDay();
+    //     let month = time.getMonth();
+    //     let hour = time.getHours();
+    //     let minutes = time.getMinutes();
+    //     console.log("date",date);
+    //     document.getElementById("day").innerHTML = daysOfWeek[day] + ", " + monthsOfYear[month] + " " + date;
+    //     document.getElementById("time").innerHTML = hour + ":" + minutes;
+    // }, 1000);
 
     $("#search-btn").click(function(){
         $("#enter-weather").html("");
@@ -55,6 +55,11 @@ $(document).ready(function() {
             })
             .then(function (data) {
                 console.log("DATA",data);
+                
+                $("#day").innerHTML = "";
+                // let timezone = data.city.timezone;
+                day = data.list[0].dt_txt
+                document.getElementById("day").innerHTML = day;
 
                 let allData = data.list[0].main;
                 console.log('City weather data \n-------------',allData);
