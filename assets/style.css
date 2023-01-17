@@ -54,13 +54,10 @@ ul {
     /* font-family: */
 }
 
-.forecast-section {
-    display: flex;
-    flex-wrap: wrap;
+.forecast {
     margin: 2rem;
     margin-top: 4rem;
     min-width: 90%;
-    background: grey;
     -webkit-box-shadow:0px 0px 51px 10px var(--myPurple);
     -moz-box-shadow: 0px 0px 51px 10px var(--myPurple);
     box-shadow: 0px 0px 51px 10px var(--myPurple);

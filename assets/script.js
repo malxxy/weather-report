@@ -102,9 +102,10 @@ $(document).ready(function() {
                 for (let i = 7; i < forecast.length; i+=8) { // loop through every day and return 
                     let fCard = document.createElement("card"); // create a new card
                     let fTitle = document.createElement("h5");
-                    let newDate = (forecast[i].dt)*1000;
-                    let timeZone = (forecast[i].timezone)*1000;
-                    fTitle.textContent = new Date(newDate - timeZone);
+                    // let newDate = (forecast[i].dt)*1000;
+                    // let timeZone = (forecast[i].timezone)*1000;
+                    // fTitle.textContent= daysOfWeek[i];
+                    // console.log("titletrial",fTitle);
                     
                     fData =  forecast[i].main; // variable for fetched data
                     console.log('forecast data',fData);
@@ -117,7 +118,7 @@ $(document).ready(function() {
                     // weather
                     let fWeather = document.createElement("p");
                     fWeather.textContent = "Weather: " + forecast[i].weather[0].main;
-                    // weather
+                    // wind
                     let fWind = document.createElement("p");
                     fWind.textContent = "Wind speed: " + forecast[i].wind.speed + "mph";
                     
@@ -129,8 +130,7 @@ $(document).ready(function() {
          });
     });
 }); 
-// notes
-                // feels like
-                // let feelsLike = document.createElement("ul");
-                // feelsLike.textContent = "Fees like: " + allData.feels_like + " degrees F";
-                // document.getElementById("enter-weather").appendChild(feelsLike);
+
+ // let newDate = (forecast[i].dt)*1000;
+                    // let timeZone = (forecast[i].timezone)*1000;
+                    // fTitle.textContent = new Date(newDate - timeZone);
