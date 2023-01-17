@@ -3,6 +3,7 @@ $(document).ready(function() {
         $("#enter-weather").html("");
         $("#city-name").html("");
         $("#insert-IconID").html("");
+        
         // Store city
         let city= $(this).siblings(".city").val();
         console.log("City",city);
@@ -89,7 +90,9 @@ $(document).ready(function() {
             .then(function (forecastData) {
                 let forecast = forecastData.list;
                 console.log('Forecast \n-------------',forecast);
-            
+
+                $("#city-text").html(""); // empty "forecast loading" text
+
                 for (let i = 7; i < forecast.length; i+=8) { // loop through every day and return 
                     let fCard = document.createElement("card"); // create a new card
                     let fTitle = document.createElement("h5");
@@ -119,6 +122,16 @@ $(document).ready(function() {
             });
          });
     });
+
+    function setTime() {
+        let time = new Date();
+        let date = time.getDate();
+        let day = time.getDay();
+        let hour = time.getHours();
+        let minutes = time.getMinutes();
+    }
+
+    setInterval(setTime,1000);
 }); 
 // notes
                 // feels like
