@@ -32,24 +32,26 @@
         <section class="search-section d-flex flex-wrap rounded" style="background:#212529;">
             <div class="search-bar">
                 <h3 class="search-heading m-3">Search a city</h3>
-                <input type="city" class="city form-control m-3" id="floatingInput" placeholder="San Francisco, CA">
+                <input type="city" class="city form-control m-3" id="floatingInput" placeholder="San Francisco">
                 <button type="button" id="search-btn" class="btn btn-primary btn-md text-white bg-blue m-3 mt-1">Search</button>
               </div>
             <div class="search-history container-fluid">
-                <h4>Search history</h4>
-                <div id="search-append">
+                <h4 class="mb-3">Search history</h4>
+                <div id="search-append" class="d-flex flex-wrap">
                 </div>
             </div>
         </section>
         <section class="dashboard-section card d-flex flex-wrap rounded" style="background:grey; width:18rem;">
               <div class="card-body w-100">
                 <h3 class="card-title text-white">Weather in 
-                  <span id="city-name"></span>
+                  <span id="city-name"></span>  
+                  <span id="insert-iconID"></span>
                 </h3>
-                <div id="day"></div>
-                <div id="time"></div>
+                <div class="dateTime mb-3">
+                  <div id="day"></div>
+                  <div id="time"></div>
+                </div>
                 <div>
-                <div id="insert-iconID"></div>
                   <p id="enter-weather"></p>
                 </div>
                 <!-- <a href="#" class="card-link">Nearest Surf Report</a> -->
@@ -58,7 +60,7 @@
         <section id="forecast" class="forecast container rounded border-dark" 
         style="background-color:#212529; color:white;">
           <div id="forecast-title">
-            <h4 id="city-title" class="card-title" style="color:White;">5 Day Forecast</h5>
+            <h4 id="city-title" class="card-title mt-3" style="color:White;">5 Day Forecast</h5>
             <p class="city-text subtitle is-6" style="color:White;">Forecast loading...</p>
           </div>
           <div id="forecast-section" class="forecast-section d-flex flex-wrap"></div>

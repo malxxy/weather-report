@@ -54,6 +54,18 @@ ul {
     /* font-family: */
 }
 
+#day {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size:large;
+    font-style: bold;
+}
+
+#time {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size:large;
+    font-style: bold;
+}
+
 .forecast {
     margin: 2rem;
     margin-top: 4rem;
@@ -61,6 +73,10 @@ ul {
     -webkit-box-shadow:0px 0px 51px 10px var(--myPurple);
     -moz-box-shadow: 0px 0px 51px 10px var(--myPurple);
     box-shadow: 0px 0px 51px 10px var(--myPurple);
+}
+
+#forecast-section {
+    justify-content: space-between;
 }
 
 footer {
@@ -73,5 +89,4 @@ footer {
 
 .footer-text {
     padding: 2rem;
-    /* vertically align text */
 }

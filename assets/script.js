@@ -18,7 +18,8 @@ $(document).ready(function() {
     $("#search-btn").click(function(){
         $("#enter-weather").html("");
         $("#city-name").html("");
-        $("#insert-IconID").html("");
+        $("#insert-iconID").html("");
+        $("#forecast-section").html("");
         
         // Store city
         let city= $(this).siblings(".city").val();
@@ -102,10 +103,17 @@ $(document).ready(function() {
                 for (let i = 7; i < forecast.length; i+=8) { // loop through every day and return 
                     let fCard = document.createElement("card"); // create a new card
                     let fTitle = document.createElement("h5");
+
                     // let newDate = (forecast[i].dt)*1000;
                     // let timeZone = (forecast[i].timezone)*1000;
                     // fTitle.textContent= daysOfWeek[i];
                     // console.log("titletrial",fTitle);
+
+                    let forecastIcon = document.createElement("img");
+                    let id = forecast[i].weather[0].icon;
+                    console.log("Icon ID",id);
+                    forecastIcon.src = `http://openweathermap.org/img/wn/${id}.png`;
+            
                     
                     fData =  forecast[i].main; // variable for fetched data
                     console.log('forecast data',fData);
@@ -124,7 +132,14 @@ $(document).ready(function() {
                     
                     document.getElementById("forecast-section").appendChild(fCard);
                     fCard.appendChild(fTitle);
-                    fCard.append(fTemp, fHumidity, fWeather, fWind)
+                    fCard.appendChild(forecastIcon);
+                    fCard.append(fTemp, fHumidity, fWeather, fWind);
+                    fCard.style.backgroundColor = "grey";
+                    fCard.style.border = "white";
+                    fTitle.style.color = "#700fdb";
+                    fCard.style.borderRadius = "15px";
+                    fCard.style.margin = "3px";
+                    fCard.style.padding = "5px";
                     }
             });
          });
