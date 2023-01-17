@@ -1,4 +1,20 @@
 $(document).ready(function() { 
+    // disp;ay date and time
+    const monthsOfYear = ["January", "February","MArch","April","May","June","July","August","September","October","November","December"];
+    const daysOfWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+    setInterval(function(){
+        let time = new Date();
+        let date = time.getDate();
+        let day = time.getDay();
+        let month = time.getMonth();
+        let hour = time.getHours();
+        let minutes = time.getMinutes();
+        console.log("date",date);
+        document.getElementById("day").innerHTML = daysOfWeek[day] + ", " + monthsOfYear[month] + " " + date;
+        document.getElementById("time").innerHTML = hour + ":" + minutes;
+    }, 1000);
+
     $("#search-btn").click(function(){
         $("#enter-weather").html("");
         $("#city-name").html("");
@@ -31,26 +47,16 @@ $(document).ready(function() {
             lat = geoData[0].lat; // grab latitude from city and assign variable
             lon = geoData[0].lon; // grab longitude from variable and assign variable
             let weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`;
-            
-            // display day of week, date and time using day js or open weather api
-            // fetch open Weather API
+
             fetch(weatherUrl)
             .then(function (response) {
                 return response.json();
             })
             .then(function (data) {
                 console.log("DATA",data);
+
                 let allData = data.list[0].main;
                 console.log('City weather data \n-------------',allData);
-                
-                // append current date and time
-                // let current = data.current.dt;
-                // console.log("current dt",current);
-                // let currentTimeZone = data.current.timezone;
-                // console.log("current timezone",currentTimeZone);
-                // let offset = data.current.timezone_offset;
-                // console.log("current offset",offset);
-                // get main weather and show on current weather section 
 
                 let weather = document.createElement("ul");
                 let weatherContent = data.list[0].weather[0].main;
@@ -122,16 +128,6 @@ $(document).ready(function() {
             });
          });
     });
-
-    function setTime() {
-        let time = new Date();
-        let date = time.getDate();
-        let day = time.getDay();
-        let hour = time.getHours();
-        let minutes = time.getMinutes();
-    }
-
-    setInterval(setTime,1000);
 }); 
 // notes
                 // feels like
