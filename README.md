@@ -2,7 +2,7 @@
 Weather report built from scratch utilizing server side APIs
 
 ## Description
-This website displays the weather in any city int he world and shows the 5-day forecast.
+This website displays the weather in any city in the world and shows the 5-day forecast. It saves your search history so you can quickly access your recently searched cities.
 
 ## Installation
 

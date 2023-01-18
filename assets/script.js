@@ -2,13 +2,13 @@ $(document).ready(function() {
     // disp;ay date and time
     const monthsOfYear = ["January", "February","MArch","April","May","June","July","August","September","October","November","December"];
     const daysOfWeek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-
-    $("#search-btn").click(function() {
+        
+    function search(city) {
         $("#enter-weather").html("");
         $("#city-name").html("");
         $("#insert-iconID").html("");
         $("#forecast-section").html("");
-
+    
         setInterval(function(){
             let time = new Date();
             let date = time.getDate();
@@ -22,18 +22,16 @@ $(document).ready(function() {
         }, 1000);
         
         // Store city
-        let city= $("#floatingInput").val();
-        console.log("City",city);
         localStorage.setItem("cityInput", city);
         let cityInput = localStorage.getItem("cityInput",city);
         console.log("getCityInput",cityInput);
         let cityTitle = "";
         cityTitle.textContent = cityInput;
         document.getElementById("city-name").append(cityInput);
-
+    
         lat = ""; // set latitude to empty string
         lon= ""; // set longitude to empty string
-
+    
         // Get latitude and longitude from city using open weather maps API
         let weatherApiKey = "78785b54a90c1a313e4af8f23972a484"; // key
         geocodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&limit=5&appid=${weatherApiKey}`;
@@ -48,7 +46,7 @@ $(document).ready(function() {
             lat = geoData[0].lat; // grab latitude from city and assign variable
             lon = geoData[0].lon; // grab longitude from variable and assign variable
             let weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`;
-
+    
             fetch(weatherUrl)
             .then(function (response) {
                 return response.json();
@@ -56,7 +54,7 @@ $(document).ready(function() {
             .then(function (data) {
                 let allData = data.list[0].main;
                 console.log('City weather data \n-------------',allData);
-
+    
                 let weather = document.createElement("ul");
                 let weatherContent = data.list[0].weather[0].main;
                 weather.textContent = "Weather: " + weatherContent;
@@ -67,7 +65,7 @@ $(document).ready(function() {
                 console.log("Icon ID",iconID);
                 weatherIcon.src = `http://openweathermap.org/img/wn/${iconID}.png`;
                 $("#insert-iconID").append(weatherIcon);
-
+    
                 // temp
                 let temp = document.createElement("ul");
                 temp.textContent = "Temperature: " + allData.temp + " degrees F";
@@ -81,14 +79,20 @@ $(document).ready(function() {
                 let wind = document.createElement("ul");
                 wind.textContent = "Wind speed: " + data.list[0].wind.speed + "mph";
                 document.getElementById("enter-weather").appendChild(wind);
-
+                
+                // create btn
                 let newBtn = document.createElement("btn");
                 newBtn.textContent = cityInput;
                 $(newBtn).attr("style","background-color: #700fdb; color:white;border-radius: 12px; padding: 10px; margin:5px;");
                 $(newBtn).addClass("new-search-btn");
                 document.getElementById("search-append").appendChild(newBtn);
+                $(newBtn).click((event) => {
+                    let city = event.target.textContent;
+                    console.log("new city",city);
+                    search(city);
+                }); // must be within scope so it does not load into page BEFORE btn exists
             });
-
+    
             fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${weatherApiKey}&units=imperial`)
             .then(function (response) {
                 return response.json();
@@ -97,15 +101,15 @@ $(document).ready(function() {
                 console.log("forecastData",forecastData);
                 let forecast = forecastData.list;
                 console.log('Forecast \n-------------',forecast);
-
+    
                 $("#city-text").html(""); // empty "forecast loading" text
-
+    
                 for (let i = 0; i < forecast.length; i+=8) { // loop through every day and return 
                     let fCard = document.createElement("card"); // create a new card
                     let fTitle = document.createElement("h5");
                     let forecastTitle = forecast[i].dt_txt;
                     fTitle.textContent = forecastTitle.slice(0,10);
-
+    
                     let forecastIcon = document.createElement("img");
                     let id = forecast[i].weather[0].icon;
                     console.log("Icon ID",id);
@@ -141,5 +145,12 @@ $(document).ready(function() {
             });
          });
         return;
+    };
+
+    $("#search-btn").click(()=> {
+        let city= $("#floatingInput").val();
+        console.log("City",city);
+        search(city);
     });
+
 });
