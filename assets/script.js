@@ -131,7 +131,7 @@ $(document).ready(function() {
                     fCard.appendChild(fTitle);
                     fCard.appendChild(forecastIcon);
                     fCard.append(fTemp, fHumidity, fWeather, fWind);
-                    fCard.style.backgroundColor = "grey";
+                    fCard.style.backgroundColor = "#99a3ad";
                     fCard.style.border = "white";
                     fTitle.style.color = "#700fdb";
                     fCard.style.borderRadius = "15px";
