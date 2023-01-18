@@ -34,7 +34,7 @@ $(document).ready(function() {
     
         // Get latitude and longitude from city using open weather maps API
         let weatherApiKey = "78785b54a90c1a313e4af8f23972a484"; // key
-        geocodeUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&limit=5&appid=${weatherApiKey}`;
+        geocodeUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&limit=5&appid=${weatherApiKey}`;
         
         fetch(geocodeUrl)
         .then(function (response) {
