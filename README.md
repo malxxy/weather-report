@@ -12,14 +12,13 @@ N/A
 
 To access this website, click [Here](insertlink).
 <br>
-Home page: ![Home](insertimage)
+Example weather in Los Angeles: ![home weather search](./assets/img/weather-search.png)
 <br>
-Enter city: ![weather in city](./assets/project-2.png)
+Forecast in Los Angeles: ![five day forecast los angeles](./assets/img/forecast.png)
 <br>
-Weather: ![weather in city](insertimage)
+Saved city history: ![saved cities](./assets/img/weather-search-2.png)
 <br>
-Saved city history: ![saved cities](insertimage)
-
+About: ![about page](./assets/img/about.png)
 ## Credits
 
 N/A
